@@ -7,11 +7,13 @@ import App from "./App.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <App>
-        <HomePage />
-      </App>
-    ),
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+    ],
   },
 ]);
 

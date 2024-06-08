@@ -1,5 +1,12 @@
+import StoreInfo from "../components/StoreInfo";
+import "../assets/styles/pages/HomePage.scss";
+
 const HomePage = () => {
-  return <h1>Home Page</h1>;
+  return (
+    <main className="home-page">
+      <StoreInfo />
+    </main>
+  );
 };
 
 export default HomePage;
