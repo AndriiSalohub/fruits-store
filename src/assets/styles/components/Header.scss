@@ -61,20 +61,36 @@
     }
   }
 
-  &__search-input {
-    transition:
-      color 0.1s ease,
-      background-color 0.1s ease;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 25px;
-    padding: 13px 20px 13px 43px;
-    background-color: rgb(245, 245, 245, 1);
-    outline: none;
+  &__search {
+    position: relative;
 
-    &:hover {
-      background-color: #e5e5e5;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background: url("../../images/loop-icon.png") no-repeat center center;
+      background-size: contain;
+    }
+
+    &-input {
+      transition:
+        color 0.1s ease,
+        background-color 0.1s ease;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      padding: 13px 20px 13px 43px;
+      background-color: rgb(245, 245, 245, 1);
+      outline: none;
+
+      &:hover {
+        background-color: #e5e5e5;
+      }
     }
   }
 }
@@ -107,7 +123,6 @@
 
     &__search-input {
       font-size: 14px;
-      padding: 13px 20px 13px 23px;
     }
   }
 }

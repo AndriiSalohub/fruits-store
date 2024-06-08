@@ -14,11 +14,13 @@ const Header = () => {
         </nav>
       </div>
       <div className="header__right">
-        <input
-          type="text"
-          placeholder="Search"
-          className="header__search-input"
-        />
+        <div className="header__search">
+          <input
+            type="text"
+            placeholder="Search"
+            className="header__search-input"
+          />
+        </div>
         <div>
           <NavLink to="/store">
             <FaRegHeart size={30} />
