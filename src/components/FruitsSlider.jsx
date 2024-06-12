@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import "../assets/styles/components/FruitsSlider.scss";
-import { initialFruits } from "../data/fruits";
 import { motion } from "framer-motion";
+import { useFruits } from "../stores/useFruits";
 
 const FruitsSlider = () => {
-  const [fruits, setFruits] = useState([]);
+  const { fruits } = useFruits();
   const [width, setWidth] = useState([0]);
   const fruitsSlider = useRef(null);
-
-  useEffect(() => {
-    setFruits(initialFruits.slice(0, 7));
-  }, []);
 
   useEffect(() => {
     setWidth(
@@ -29,10 +25,10 @@ const FruitsSlider = () => {
             left: -width,
           }}
         >
-          {fruits.map((fruit) => (
+          {fruits.slice(0, 7).map((fruit) => (
             <motion.li key={fruit.id} className="fruits-slider__list-item">
               <img src={fruit.image} alt={fruit.name} draggable="false" />
-              <p className="fruits-slider__list-item-title">{fruit.name}</p>
+              <h4 className="fruits-slider__list-item-title">{fruit.name}</h4>
             </motion.li>
           ))}
         </motion.ul>

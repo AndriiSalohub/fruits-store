@@ -205,7 +205,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C", "Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "src/assets/images/kiwi.png",
+    image: "src/assets/images/kiwi-fruit.png",
   },
   {
     id: 17,
@@ -322,6 +322,6 @@ export const initialFruits = [
     vitamins: ["Vitamin A"],
     isFavorite: false,
     inBag: false,
-    image: "src/assets/images/pumpkin.png",
+    image: "src/assets/images/jack-o-lantern.png",
   },
 ];

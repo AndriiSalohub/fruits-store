@@ -1,7 +1,12 @@
 import "../assets/styles/pages/StorePage.scss";
+import FruitsList from "../components/FruitsList";
 
 const StorePage = () => {
-  return <h1>Store Page</h1>;
+  return (
+    <main className="store-page">
+      <FruitsList />
+    </main>
+  );
 };
 
 export default StorePage;
