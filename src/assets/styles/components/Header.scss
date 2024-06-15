@@ -87,11 +87,19 @@
       padding: 13px 20px 13px 43px;
       background-color: rgb(245, 245, 245, 1);
       outline: none;
-
-      &:hover {
-        background-color: #e5e5e5;
-      }
     }
+  }
+}
+
+@media (hover: hover) {
+  .header__search-input:hover {
+    background-color: #e5e5e5;
+  }
+}
+
+@media (hover: none) {
+  .header__search-input:active {
+    background-color: #e5e5e5;
   }
 }
 

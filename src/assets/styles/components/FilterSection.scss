@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .filters {
   padding: 10px 20px;
 
@@ -20,7 +22,6 @@
     }
   }
 
-  &__color,
   &__section {
     &-list {
       display: flex;
@@ -42,10 +43,6 @@
         padding: 5px;
         position: relative;
 
-        &:hover {
-          background-color: #f5f5f5;
-        }
-
         &:first-child {
           margin-top: 10px;
         }
@@ -61,7 +58,7 @@
       appearance: none;
       width: 20px;
       height: 20px;
-      border: 1px solid #d4d4d4;
+      border: $primary-border;
       border-radius: 4px;
       position: relative;
       cursor: pointer;
@@ -84,65 +81,6 @@
           transform: translate(-50%, -50%) rotate(45deg);
         }
       }
-    }
-  }
-
-  &__color {
-    &-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 10px;
-      justify-items: center;
-      height: 0px;
-      overflow: hidden;
-      transition: all 0.3s ease-in-out;
-
-      &.open-colors {
-        height: auto;
-        margin-top: 10px;
-      }
-
-      &-item {
-        border-radius: 8px;
-        transition: background-color 0.2s ease-in-out;
-        padding: 10px;
-        cursor: pointer;
-        position: relative;
-
-        & div {
-          margin: 0 auto;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          margin-bottom: 5px;
-          position: relative;
-        }
-
-        &:hover {
-          background-color: #f5f5f5;
-        }
-
-        &.selected div {
-          background-color: #000;
-
-          .tick-mark {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 6px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: translate(-50%, -50%) rotate(45deg);
-          }
-        }
-      }
-    }
-
-    &-name {
-      font-size: 14px;
-      font-weight: 400;
     }
   }
 }
@@ -168,6 +106,22 @@
 
 .arrow-rotate-closed {
   transform: rotate(0deg);
+}
+
+@media (hover: hover) {
+
+  .filters__color-list-item:hover,
+  .filters__section-list-item:hover {
+    background-color: $primary-background;
+  }
+}
+
+@media (hover: none) {
+
+  .filters__color-list-item:active,
+  .filters__section-list-item:active {
+    background-color: $primary-background;
+  }
 }
 
 @media (max-width: 700px) {

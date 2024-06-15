@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .fruits-slider {
   margin-top: 40px;
   overflow: hidden;
@@ -8,7 +10,7 @@
     gap: 15px;
 
     &-item {
-      background-color: #f5f5f5;
+      background-color: $primary-background;
       padding: 20px;
       border-radius: 12px;
       cursor: pointer;
