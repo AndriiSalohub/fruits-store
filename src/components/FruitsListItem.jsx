@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 

@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { IoBagHandleOutline } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/Header.scss";
 
 const Header = () => {
+  const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
+
   return (
     <header className="header">
       <div className="header__left">
@@ -22,8 +25,16 @@ const Header = () => {
           />
         </div>
         <div>
-          <NavLink to="/store">
-            <FaRegHeart size={30} />
+          <NavLink to="/store" className="header__favorite">
+            {showOnlyFavorites ? (
+              <FaHeart size={30} onClick={toggleShowOnlyFavorites} />
+            ) : (
+              <FaRegHeart size={30} onClick={toggleShowOnlyFavorites} />
+            )}
+            <span className="header__favorite-number">
+              {" "}
+              {fruits.filter((fruit) => fruit.isFavorite == true).length}
+            </span>
           </NavLink>
           <NavLink to="/bag">
             <IoBagHandleOutline size={30} />
