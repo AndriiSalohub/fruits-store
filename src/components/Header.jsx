@@ -3,9 +3,11 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/Header.scss";
+import { useSearch } from "../stores/useSearch";
 
 const Header = () => {
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
+  const { updateSearchTerm } = useSearch();
 
   return (
     <header className="header">
@@ -22,6 +24,7 @@ const Header = () => {
             type="text"
             placeholder="Search"
             className="header__search-input"
+            onChange={(e) => updateSearchTerm(e.target.value)}
           />
         </div>
         <div>
