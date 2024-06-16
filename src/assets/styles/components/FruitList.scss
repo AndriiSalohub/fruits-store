@@ -23,6 +23,38 @@
     display: flex;
     flex-direction: column;
 
+    &-like {
+      height: 20px;
+      width: 20px;
+      margin-left: auto;
+      opacity: 0;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition:
+        opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
+
+      & svg {
+        width: 20px;
+        height: 20px;
+
+        &.liked {
+          color: red;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &:hover {
+      .fruits-list__item-like {
+        opacity: 1;
+      }
+    }
+
     &-image {
       width: 60px;
       padding: 60px;
