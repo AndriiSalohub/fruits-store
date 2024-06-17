@@ -5,7 +5,7 @@ export const useFilters = create((set) => ({
   colors: initialFilters.colors,
   families: initialFilters.families,
   vitamins: initialFilters.vitamins,
-  updateColorsFilters: (colorName) =>
+  toggleColorFilter: (colorName) =>
     set((state) => ({
       colors: state.colors.map((color) =>
         color.name === colorName
@@ -13,7 +13,7 @@ export const useFilters = create((set) => ({
           : color,
       ),
     })),
-  updateFamiliesFilters: (familyName) =>
+  toggleFamilyFilter: (familyName) =>
     set((state) => ({
       families: state.families.map((family) =>
         family.name === familyName
@@ -21,7 +21,7 @@ export const useFilters = create((set) => ({
           : { ...family, isChecked: false },
       ),
     })),
-  updateVitaminsFilters: (vitaminName) =>
+  toggleVitaminFilter: (vitaminName) =>
     set((state) => ({
       vitamins: state.vitamins.map((vitamin) =>
         vitamin.name === vitaminName

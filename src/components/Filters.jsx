@@ -14,11 +14,11 @@ const Filters = () => {
 
   const {
     colors,
-    updateColorsFilters,
+    toggleColorFilter,
     families,
-    updateFamiliesFilters,
+    toggleFamilyFilter,
     vitamins,
-    updateVitaminsFilters,
+    toggleVitaminFilter,
   } = useFilters();
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Filters = () => {
                 className={`filters__color-list-item ${color.isChecked ? "selected" : ""}`}
                 key={color.name}
                 onClick={() => {
-                  updateColorsFilters(color.name);
+                  toggleColorFilter(color.name);
                 }}
               >
                 <div style={{ backgroundColor: color.name.toLowerCase() }}>
@@ -74,13 +74,13 @@ const Filters = () => {
           title="Family"
           items={families}
           itemType="family"
-          updateFilters={updateFamiliesFilters}
+          updateFilters={toggleFamilyFilter}
         />
         <FilterSection
           title="Vitamins"
           items={vitamins}
           itemType="vitamins"
-          updateFilters={updateVitaminsFilters}
+          updateFilters={toggleVitaminFilter}
         />
       </aside>
     </>

@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
@@ -21,6 +21,18 @@ const FruitsListItem = ({ fruit, handleLike }) => {
       </div>
     </li>
   );
+};
+
+FruitsListItem.propTypes = {
+  fruit: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    family: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+  }).isRequired,
+  handleLike: PropTypes.func.isRequired,
 };
 
 export default FruitsListItem;

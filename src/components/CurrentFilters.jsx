@@ -7,11 +7,11 @@ const CurrentFilters = () => {
   const { searchTerm, updateSearchTerm } = useSearch();
   const {
     colors,
-    updateColorsFilters,
+    toggleColorFilter,
     families,
-    updateFamiliesFilters,
+    toggleFamilyFilter,
     vitamins,
-    updateVitaminsFilters,
+    toggleVitaminFilter,
   } = useFilters();
 
   const renderCheckedItems = (items, updateFunction) =>
@@ -31,9 +31,9 @@ const CurrentFilters = () => {
 
   return (
     <ul className="current-filters">
-      {renderCheckedItems(colors, updateColorsFilters)}
-      {renderCheckedItems(families, updateFamiliesFilters)}
-      {renderCheckedItems(vitamins, updateVitaminsFilters)}
+      {renderCheckedItems(colors, toggleColorFilter)}
+      {renderCheckedItems(families, toggleFamilyFilter)}
+      {renderCheckedItems(vitamins, toggleVitaminFilter)}
       {searchTerm.trim() != "" && (
         <li className="current-filters__filter">
           <p className="current-filters__filter-text">"{searchTerm}"</p>

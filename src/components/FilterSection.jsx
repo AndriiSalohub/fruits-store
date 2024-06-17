@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { IoIosArrowUp } from "react-icons/io";
 import "../assets/styles/components/FilterSection.scss";
 
@@ -53,4 +52,17 @@ const FilterSection = ({ title, items, itemType, updateFilters }) => {
     </section>
   );
 };
+
+FilterSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      isChecked: PropTypes.bool.isRequired,
+    }),
+  ).isRequired,
+  itemType: PropTypes.string.isRequired,
+  updateFilters: PropTypes.func.isRequired,
+};
+
 export default FilterSection;
