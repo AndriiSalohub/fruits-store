@@ -3,15 +3,23 @@ import { IoIosArrowUp } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import "../assets/styles/components/Filters.scss";
-import { initialFilters } from "../data/filters";
 import FilterSection from "./FilterSection.jsx";
+import { useFilters } from "../stores/useFilters.js";
 
 const Filters = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedColors, setSelectedColors] = useState([]);
   const [isColorsOpen, setIsColorsOpen] = useState(true);
   const [colorsHeight, setColorsHeight] = useState(0);
   const colorsRef = useRef(null);
+
+  const {
+    colors,
+    updateColorsFilters,
+    families,
+    updateFamiliesFilters,
+    vitamins,
+    updateVitaminsFilters,
+  } = useFilters();
 
   useEffect(() => {
     setColorsHeight(colorsRef.current.scrollHeight);
@@ -19,14 +27,6 @@ const Filters = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-
-  const toggleColor = (colorName) => {
-    setSelectedColors((prevSelectedColors) =>
-      prevSelectedColors.includes(colorName)
-        ? prevSelectedColors.filter((color) => color !== colorName)
-        : [...prevSelectedColors, colorName],
-    );
   };
 
   const toggleColorsOpen = () => {
@@ -54,16 +54,16 @@ const Filters = () => {
               height: isColorsOpen ? `${colorsHeight}px` : "0px",
             }}
           >
-            {initialFilters.colors.map((color) => (
+            {colors.map((color) => (
               <li
-                className={`filters__color-list-item ${selectedColors.includes(color.name) ? "selected" : ""}`}
+                className={`filters__color-list-item ${color.isChecked ? "selected" : ""}`}
                 key={color.name}
-                onClick={() => toggleColor(color.name)}
+                onClick={() => {
+                  updateColorsFilters(color.name);
+                }}
               >
                 <div style={{ backgroundColor: color.name.toLowerCase() }}>
-                  {selectedColors.includes(color.name) && (
-                    <span className="tick-mark"></span>
-                  )}
+                  {color.isChecked && <span className="tick-mark"></span>}
                 </div>
                 <p className="filters__color-name">{color.name}</p>
               </li>
@@ -72,13 +72,15 @@ const Filters = () => {
         </section>
         <FilterSection
           title="Family"
-          items={initialFilters.families}
+          items={families}
           itemType="family"
+          updateFilters={updateFamiliesFilters}
         />
         <FilterSection
           title="Vitamins"
-          items={initialFilters.vitamins}
+          items={vitamins}
           itemType="vitamins"
+          updateFilters={updateVitaminsFilters}
         />
       </aside>
     </>

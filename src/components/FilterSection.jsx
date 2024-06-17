@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import "../assets/styles/components/FilterSection.scss";
 
-const FilterSection = ({ title, items, itemType }) => {
+const FilterSection = ({ title, items, itemType, updateFilters }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [sectionHeight, setSectionHeight] = useState(0);
   const sectionRef = useRef(null);
@@ -37,10 +37,12 @@ const FilterSection = ({ title, items, itemType }) => {
           <li
             className={`filters__section-list-item filters__${itemType}-list-item`}
             key={item.name}
+            onClick={() => updateFilters(item.name)}
           >
             <input
               type="checkbox"
               className={`filters__section-checkbox filters__${itemType}-checkbox`}
+              checked={item.isChecked}
             />
             <p className={`filters__section-name filters__${itemType}-name`}>
               {item.name}
