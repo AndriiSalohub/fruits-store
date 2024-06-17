@@ -7,7 +7,7 @@ import { useSearch } from "../stores/useSearch";
 
 const Header = () => {
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
-  const { updateSearchTerm } = useSearch();
+  const { searchTerm, updateSearchTerm } = useSearch();
 
   return (
     <header className="header">
@@ -21,6 +21,7 @@ const Header = () => {
       <div className="header__right">
         <div className="header__search">
           <input
+            value={searchTerm}
             type="text"
             placeholder="Search"
             className="header__search-input"

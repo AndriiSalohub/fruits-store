@@ -3,6 +3,7 @@ import FruitsListItem from "./FruitsListItem";
 import "../assets/styles/components/FruitList.scss";
 import { useSearch } from "../stores/useSearch";
 import { useFilters } from "../stores/useFilters";
+import CurrentFilters from "./CurrentFilters";
 
 const FruitsList = () => {
   const { fruits, toggleLike, showOnlyFavorites } = useFruits();
@@ -64,6 +65,7 @@ const FruitsList = () => {
           ""
         )}
       </h3>
+      <CurrentFilters />
       <ul className="fruits-list">
         {displayedFruits.map((fruit) => (
           <FruitsListItem
