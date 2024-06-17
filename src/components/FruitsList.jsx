@@ -4,6 +4,7 @@ import "../assets/styles/components/FruitList.scss";
 import { useSearch } from "../stores/useSearch";
 import { useFilters } from "../stores/useFilters";
 import CurrentFilters from "./CurrentFilters";
+import { AnimatePresence } from "framer-motion";
 
 const FruitsList = () => {
   const { fruits, toggleLike, showOnlyFavorites } = useFruits();
@@ -67,13 +68,15 @@ const FruitsList = () => {
       </h3>
       <CurrentFilters />
       <ul className="fruits-list">
-        {displayedFruits.map((fruit) => (
-          <FruitsListItem
-            fruit={fruit}
-            handleLike={toggleLike}
-            key={fruit.id}
-          />
-        ))}
+        <AnimatePresence>
+          {displayedFruits.map((fruit) => (
+            <FruitsListItem
+              fruit={fruit}
+              handleLike={toggleLike}
+              key={fruit.id}
+            />
+          ))}
+        </AnimatePresence>
       </ul>
     </section>
   );

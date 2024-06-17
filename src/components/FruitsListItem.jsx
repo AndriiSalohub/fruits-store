@@ -1,12 +1,20 @@
 import PropTypes from "prop-types";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const FruitsListItem = ({ fruit, handleLike }) => {
   const { id, name, image, family, price, isFavorite } = fruit;
 
   return (
-    <li className="fruits-list__item">
+    <motion.li
+      className="fruits-list__item"
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.8, opacity: 0 }}
+      transition={{ type: "spring" }}
+    >
       <button onClick={() => handleLike(id)} className="fruits-list__item-like">
         {isFavorite ? <FaHeart className="liked" /> : <FaRegHeart />}
       </button>
@@ -19,7 +27,7 @@ const FruitsListItem = ({ fruit, handleLike }) => {
           <IoBagHandleOutline />
         </button>
       </div>
-    </li>
+    </motion.li>
   );
 };
 
