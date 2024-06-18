@@ -20,7 +20,7 @@ const FruitsListItem = ({ fruit }) => {
         transition={{ type: "spring" }}
       >
         <button
-          onClick={() => {
+          onClick={(e) => {
             toggleLike(id);
             e.stopPropagation();
             e.preventDefault();
@@ -58,6 +58,7 @@ FruitsListItem.propTypes = {
     family: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     isFavorite: PropTypes.bool.isRequired,
+    inBag: PropTypes.bool.isRequired,
   }).isRequired,
 };
 

@@ -4,6 +4,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/Header.scss";
 import { useSearch } from "../stores/useSearch";
+import ShoppingBag from "./ShoppingBag";
 
 const Header = () => {
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
@@ -28,7 +29,7 @@ const Header = () => {
             onChange={(e) => updateSearchTerm(e.target.value)}
           />
         </div>
-        <div>
+        <div id="icons-div">
           <NavLink to="/store" className="header__favorite">
             {showOnlyFavorites ? (
               <FaHeart size={30} onClick={toggleShowOnlyFavorites} />
@@ -40,12 +41,15 @@ const Header = () => {
               {fruits.filter((fruit) => fruit.isFavorite == true).length}
             </span>
           </NavLink>
-          <NavLink to="/bag" className="header__in-bag">
+          <NavLink to="/bag" className="header__in-bag" id="bag">
             <MdOutlineShoppingBag size={37} />
             <span className="header__in-bag-number">
               {" "}
-              {fruits.filter((fruit) => fruit.inBag == true).length}
+              {fruits.filter((fruit) => fruit.inBag).length}
             </span>
+            {fruits.filter((fruit) => fruit.inBag).length > 0 && (
+              <ShoppingBag fruits={fruits} />
+            )}
           </NavLink>
         </div>
       </div>
