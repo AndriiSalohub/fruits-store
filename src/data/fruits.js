@@ -139,7 +139,7 @@ export const initialFruits = [
     family: "Rose",
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
-    inBag: true,
+    inBag: false,
     image: "src/assets/images/peach.png",
   },
   {
@@ -178,7 +178,7 @@ export const initialFruits = [
     family: "Berry",
     vitamins: ["Vitamin C", "Vitamin K"],
     isFavorite: false,
-    inBag: true,
+    inBag: false,
     image: "src/assets/images/blueberries.png",
   },
   {

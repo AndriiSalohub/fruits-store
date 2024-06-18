@@ -14,4 +14,10 @@ export const useFruits = create((set) => ({
     set((state) => ({
       showOnlyFavorites: !state.showOnlyFavorites,
     })),
+  toggleInBag: (id) =>
+    set((state) => ({
+      fruits: state.fruits.map((fruit) =>
+        fruit.id == id ? { ...fruit, inBag: !fruit.inBag } : fruit,
+      ),
+    })),
 }));

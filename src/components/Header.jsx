@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { IoBagHandleOutline } from "react-icons/io5";
+import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/Header.scss";
@@ -40,8 +40,12 @@ const Header = () => {
               {fruits.filter((fruit) => fruit.isFavorite == true).length}
             </span>
           </NavLink>
-          <NavLink to="/bag">
-            <IoBagHandleOutline size={30} />
+          <NavLink to="/bag" className="header__in-bag">
+            <MdOutlineShoppingBag size={37} />
+            <span className="header__in-bag-number">
+              {" "}
+              {fruits.filter((fruit) => fruit.inBag == true).length}
+            </span>
           </NavLink>
         </div>
       </div>

@@ -20,7 +20,18 @@
     }
   }
 
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+
   &__item {
+    & a {
+      text-decoration: none;
+      color: black;
+      display: grid;
+    }
+
     background-color: $primary-background;
     padding: 20px;
     border-radius: 12px;
@@ -87,10 +98,10 @@
       font-size: 14px;
     }
 
-    &-buy-button {
+    &-in-bag-button {
       background-color: transparent;
       border: none;
-      height: 20px;
+      height: 25px;
       cursor: pointer;
 
       & svg {

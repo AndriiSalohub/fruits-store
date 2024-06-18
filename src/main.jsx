@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage.jsx";
 import App from "./App.jsx";
 import StorePage from "./pages/StorePage.jsx";
 import BagPage from "./pages/BagPage.jsx";
+import FruitPage from "./pages/FruitPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,16 @@ const router = createBrowserRouter([
       {
         path: "/store",
         element: <StorePage />,
+      },
+    ],
+  },
+  {
+    path: "/store/:fruit-name",
+    element: <App />,
+    children: [
+      {
+        path: "/store/:fruit-name",
+        element: <FruitPage />,
       },
     ],
   },

@@ -7,7 +7,7 @@ import CurrentFilters from "./CurrentFilters";
 import { AnimatePresence } from "framer-motion";
 
 const FruitsList = () => {
-  const { fruits, toggleLike, showOnlyFavorites } = useFruits();
+  const { fruits, showOnlyFavorites } = useFruits();
   const { searchTerm } = useSearch();
   const { colors, families, vitamins } = useFilters();
 
@@ -70,11 +70,7 @@ const FruitsList = () => {
       <ul className="fruits-list">
         <AnimatePresence>
           {displayedFruits.map((fruit) => (
-            <FruitsListItem
-              fruit={fruit}
-              handleLike={toggleLike}
-              key={fruit.id}
-            />
+            <FruitsListItem fruit={fruit} key={fruit.id} />
           ))}
         </AnimatePresence>
       </ul>
