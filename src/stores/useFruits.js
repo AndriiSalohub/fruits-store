@@ -20,4 +20,16 @@ export const useFruits = create((set) => ({
         fruit.id == id ? { ...fruit, inBag: !fruit.inBag } : fruit,
       ),
     })),
+  increaseQuantity: (id) =>
+    set((state) => ({
+      fruits: state.fruits.map((fruit) =>
+        fruit.id == id ? { ...fruit, quantity: fruit.quantity + 1 } : fruit,
+      ),
+    })),
+  decreaseQuantity: (id) =>
+    set((state) => ({
+      fruits: state.fruits.map((fruit) =>
+        fruit.id == id ? { ...fruit, quantity: fruit.quantity - 1 } : fruit,
+      ),
+    })),
 }));

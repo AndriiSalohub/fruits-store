@@ -22,7 +22,7 @@ const ShoppingBag = ({ fruits }) => {
             <li key={fruit.id} className="shopping-bag__list-item">
               <div className="shopping-bag__list-item-image-container">
                 <img
-                  src={fruit.image}
+                  src={`../../${fruit.image}`}
                   alt={fruit.name}
                   className="shopping-bag__list-item-image"
                 />

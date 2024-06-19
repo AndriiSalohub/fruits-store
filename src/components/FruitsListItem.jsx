@@ -33,7 +33,7 @@ const FruitsListItem = ({ fruit }) => {
         <h4 className="fruits-list__item-name">{name}</h4>
         <h4 className="fruits-list__item-family">{family.split(", ")}</h4>
         <div>
-          <p className="fruits-list__item-price">${price}</p>
+          <p className="fruits-list__item-price">${price.toFixed(1)}</p>
           <button
             className="fruits-list__item-in-bag-button"
             onClick={(e) => {

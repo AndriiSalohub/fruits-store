@@ -2,10 +2,17 @@ import { useParams } from "react-router-dom";
 import { useFruits } from "../stores/useFruits";
 import { IoCubeOutline } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import "../assets/styles/components/FruitPageItem.scss";
 
 const FruitPageItem = () => {
-  const { fruits } = useFruits();
+  const {
+    fruits,
+    toggleInBag,
+    toggleLike,
+    decreaseQuantity,
+    increaseQuantity,
+  } = useFruits();
   const { fruitName } = useParams();
   const [fruit] = fruits.filter((fruit) => fruit.name === fruitName);
 
@@ -13,6 +20,12 @@ const FruitPageItem = () => {
     <article className="fruit-page-item">
       <div className="fruit-page-item__view-details">
         <div className="fruit-page-item__image-container">
+          <button
+            onClick={() => toggleLike(fruit.id)}
+            className="fruit-page-item__like"
+          >
+            {fruit.isFavorite ? <FaHeart className="liked" /> : <FaRegHeart />}
+          </button>
           <img
             src={`../../${fruit.image}`}
             alt={fruit.name}
@@ -44,15 +57,24 @@ const FruitPageItem = () => {
         <p className="fruit-page-item__stock">
           <IoCubeOutline /> In Stock
         </p>
-        <p className="fruit-page-item__price">${fruit.price.toFixed(1)}</p>
+        <p className="fruit-page-item__price">
+          ${(fruit.price * fruit.quantity).toFixed(1)}
+        </p>
         <div className="fruit-page-item__quantity">
-          <button className="fruit-page-item__quantity-button fruit-page-item__quantity-button_decrease">
+          <button
+            className="fruit-page-item__quantity-button fruit-page-item__quantity-button_decrease"
+            onClick={() => decreaseQuantity(fruit.id)}
+            disabled={fruit.quantity == 1 ? true : false}
+          >
             -
           </button>
           <span className="fruit-page-item__current-quantity">
             {fruit.quantity}
           </span>
-          <button className="fruit-page-item__quantity-button fruit-page-item__quantity-button_increase">
+          <button
+            className="fruit-page-item__quantity-button fruit-page-item__quantity-button_increase"
+            onClick={() => increaseQuantity(fruit.id)}
+          >
             +
           </button>
         </div>
@@ -66,9 +88,12 @@ const FruitPageItem = () => {
           <button className="fruit-page-item__actions-button fruit-page-item__actions-button_buy-now">
             Buy Now
           </button>
-          <button className="fruit-page-item__actions-button fruit-page-item__actions-button_to-bag">
+          <button
+            className="fruit-page-item__actions-button fruit-page-item__actions-button_to-bag"
+            onClick={() => toggleInBag(fruit.id)}
+          >
             <MdOutlineShoppingBag size={15} />
-            Add to Bag
+            {fruit.inBag ? "Remove from Bag" : "Add to Bag"}
           </button>
         </div>
       </div>
