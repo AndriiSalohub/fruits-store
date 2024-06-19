@@ -2,8 +2,11 @@ import PropTypes from "prop-types";
 import "../assets/styles/components/ShoppingBag.scss";
 import { Tooltip } from "react-tooltip";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { useFruits } from "../stores/useFruits";
 
 const ShoppingBag = ({ fruits }) => {
+  const { deleteFruit } = useFruits();
+
   return (
     <Tooltip
       anchorSelect="#bag"
@@ -38,7 +41,14 @@ const ShoppingBag = ({ fruits }) => {
                   Qty: {fruit.quantity}
                 </p>
               </div>
-              <button className="shopping-bag__list-item-delete">
+              <button
+                className="shopping-bag__list-item-delete"
+                onClick={(e) => {
+                  deleteFruit(fruit.id);
+                  e.stopPropagation();
+                  e.preventDefault();
+                }}
+              >
                 <FaRegTrashAlt size={15} />
               </button>
               <span className="shopping-bag__list-item-price">

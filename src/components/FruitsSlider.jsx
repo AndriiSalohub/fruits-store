@@ -26,7 +26,7 @@ const FruitsSlider = () => {
           }}
         >
           {fruits.slice(0, 7).map((fruit) => (
-            <motion.li key={fruit.id} className="fruits-slider__list-item">
+            <motion.li className="fruits-slider__list-item" key={fruit.id}>
               <img src={fruit.image} alt={fruit.name} draggable="false" />
               <h4 className="fruits-slider__list-item-title">{fruit.name}</h4>
             </motion.li>

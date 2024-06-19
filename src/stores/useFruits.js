@@ -32,4 +32,10 @@ export const useFruits = create((set) => ({
         fruit.id == id ? { ...fruit, quantity: fruit.quantity - 1 } : fruit,
       ),
     })),
+  deleteFruit: (id) =>
+    set((state) => ({
+      fruits: state.fruits.map((fruit) =>
+        fruit.id == id ? { ...fruit, quantity: 1, inBag: false } : fruit,
+      ),
+    })),
 }));
