@@ -8,15 +8,7 @@ const ShoppingBag = ({ fruits }) => {
   const { deleteFruit } = useFruits();
 
   return (
-    <Tooltip
-      anchorSelect="#bag"
-      clickable={true}
-      place="bottom-end"
-      opacity={1}
-      className="shopping-bag"
-      border="1px solid #e5e5e5"
-      variant="light"
-    >
+    <>
       <h2 className="shopping-bag__title">Shopping Bag</h2>
       <ul className="shopping-bag__list">
         {fruits
@@ -73,7 +65,7 @@ const ShoppingBag = ({ fruits }) => {
       <button className="shopping-bag__checkout-button see-in-bag">
         See in Bag
       </button>
-    </Tooltip>
+    </>
   );
 };
 

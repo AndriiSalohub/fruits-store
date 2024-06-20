@@ -4,7 +4,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/Header.scss";
 import { useSearch } from "../stores/useSearch";
-import ShoppingBag from "./ShoppingBag";
+import ShoppingBagTooltip from "./ShoppingBagTooltip";
 
 const Header = () => {
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
@@ -48,7 +48,7 @@ const Header = () => {
               {fruits.filter((fruit) => fruit.inBag).length}
             </span>
             {fruits.filter((fruit) => fruit.inBag).length > 0 && (
-              <ShoppingBag fruits={fruits} />
+              <ShoppingBagTooltip fruits={fruits} />
             )}
           </NavLink>
         </div>
