@@ -1,121 +1,118 @@
 @import "../variables.scss";
 
 .shopping-bag {
-  &__title {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  margin-top: 20px;
+
+  &_empty {
+    color: #a2a2a2;
   }
 
-  &__list {
-    list-style: none;
-    padding: 20px 0px;
-    margin: 0 0 20px 0;
-    border-top: $line-border;
-    border-bottom: $line-border;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 
-    &-item {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-image-container {
+      padding: 30px;
+      border-radius: 8px;
+      background-color: $primary-background;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 15px;
+      justify-content: center;
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
       gap: 20px;
+    }
 
-      &:last-child {
-        margin-bottom: 0px;
+    &-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    &-family {
+      color: #525252;
+      margin-bottom: 5px;
+    }
+
+    &-stock {
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      font-size: 14px;
+
+      svg {
+        margin-right: 5px;
       }
+    }
 
-      &-image {
-        width: 40px;
-        height: 40px;
+    &-quantity {
+      color: #a3a3a3;
+      font-size: 14px;
+    }
 
-        &-container {
-          padding: 10px;
-          background: $primary-background;
-          border-radius: 8px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      }
+    &-quantity-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-right: 1rem;
 
-      &-details {
-        flex-grow: 1;
-        margin-left: 10px;
-        font-size: 0.875rem;
+      &-button {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 2px;
         display: flex;
-        flex-direction: column;
-
-        &-name {
-          margin: 0;
-          font-weight: 800;
-        }
-
-        &-quantity {
-          color: #777;
-        }
-
-        & p {
-          margin: 2px 0;
-        }
-      }
-
-      &-delete {
-        & svg {
-          color: red;
-        }
-      }
-
-      &-price {
-        font-size: 16px;
-        font-weight: 800;
-      }
-
-      &-delete {
-        background: none;
-        border: none;
-        color: red;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        margin-left: 10px;
+        transition: background-color 0.3s;
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+
+        &:not(:disabled):hover {
+          background-color: #f0f0f0;
+        }
       }
     }
-  }
 
-  &__total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 20px;
+    &-delete-button {
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #e53e3e;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
 
-    &-label {
-      color: #777;
-    }
-  }
-
-  &__checkout-button,
-  &__see-in-bag-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 800;
-    text-align: center;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
-
-    &.checkout {
-      background-color: #007bff;
-      color: #fff;
-      margin-bottom: 10px;
+      &:hover {
+        background-color: #f0f0f0;
+      }
     }
 
-    &.see-in-bag {
-      background-color: #f8f9fa;
-      color: #007bff;
-      border: 1px solid #007bff;
+    &-price {
+      font-weight: 800;
     }
   }
 }

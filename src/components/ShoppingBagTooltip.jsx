@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
-import "../assets/styles/components/ShoppingBag.scss";
 import { Tooltip } from "react-tooltip";
-import ShoppingBag from "./ShoppingBag";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { useFruits } from "../stores/useFruits";
+import "../assets/styles/components/ShoppingBagTooltip.scss";
 
 const ShoppingBagTooltip = ({ fruits }) => {
+  const { deleteFruit } = useFruits();
+
   return (
     <Tooltip
       anchorSelect="#bag"
@@ -14,7 +17,64 @@ const ShoppingBagTooltip = ({ fruits }) => {
       border="1px solid #e5e5e5"
       variant="light"
     >
-      <ShoppingBag fruits={fruits} />
+      <h2 className="shopping-bag-tooltip__title">Shopping Bag</h2>
+      <ul className="shopping-bag-tooltip__list">
+        {fruits
+          .filter((fruit) => fruit.inBag)
+          .map((fruit) => (
+            <li key={fruit.id} className="shopping-bag-tooltip__list-item">
+              <div className="shopping-bag-tooltip__list-item-image-container">
+                <img
+                  src={`../../${fruit.image}`}
+                  alt={fruit.name}
+                  className="shopping-bag-tooltip__list-item-image"
+                />
+              </div>
+              <div className="shopping-bag-tooltip__list-item-details">
+                <h4 className="shopping-bag-tooltip__list-item-details-name">
+                  {fruit.name}
+                </h4>
+                <p className="shopping-bag-tooltip__list-item-details-family">
+                  {fruit.family}
+                </p>
+                <p className="shopping-bag-tooltip__list-item-details-quantity">
+                  Qty: {fruit.quantity}
+                </p>
+              </div>
+              <button
+                className="shopping-bag-tooltip__list-item-delete"
+                onClick={(e) => {
+                  deleteFruit(fruit.id);
+                  e.stopPropagation();
+                  e.preventDefault();
+                }}
+              >
+                <FaRegTrashAlt size={15} />
+              </button>
+              <span className="shopping-bag-tooltip__list-item-price">
+                ${(fruit.price * fruit.quantity).toFixed(2)}
+              </span>
+            </li>
+          ))}
+      </ul>
+      <div className="shopping-bag-tooltip__total">
+        <span className="shopping-bag-tooltip__total-label">
+          Total (incl. VAT)
+        </span>
+        <span>
+          $
+          {fruits
+            .filter((fruit) => fruit.inBag)
+            .reduce((total, fruit) => total + fruit.price * fruit.quantity, 0)
+            .toFixed(2)}
+        </span>
+      </div>
+      <button className="shopping-bag-tooltip__checkout-button checkout">
+        Checkout
+      </button>
+      <button className="shopping-bag-tooltip__checkout-button see-in-bag">
+        See in Bag
+      </button>
     </Tooltip>
   );
 };

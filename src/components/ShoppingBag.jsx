@@ -1,40 +1,64 @@
-import PropTypes from "prop-types";
-import "../assets/styles/components/ShoppingBag.scss";
-import { Tooltip } from "react-tooltip";
-import { FaRegTrashAlt } from "react-icons/fa";
 import { useFruits } from "../stores/useFruits";
+import { IoCubeOutline } from "react-icons/io5";
+import { FaRegTrashAlt } from "react-icons/fa";
+import "../assets/styles/components/ShoppingBag.scss";
 
-const ShoppingBag = ({ fruits }) => {
-  const { deleteFruit } = useFruits();
+const ShoppingBag = () => {
+  const { fruits, decreaseQuantity, increaseQuantity, deleteFruit } =
+    useFruits();
+
+  if (fruits.filter((fruit) => fruit.inBag).length < 1) {
+    return <h2 className="shopping-bag_empty">Bag is empty</h2>;
+  }
 
   return (
-    <>
-      <h2 className="shopping-bag__title">Shopping Bag</h2>
+    <section className="shopping-bag">
       <ul className="shopping-bag__list">
         {fruits
           .filter((fruit) => fruit.inBag)
           .map((fruit) => (
-            <li key={fruit.id} className="shopping-bag__list-item">
-              <div className="shopping-bag__list-item-image-container">
-                <img
-                  src={`../../${fruit.image}`}
-                  alt={fruit.name}
-                  className="shopping-bag__list-item-image"
-                />
+            <li className="shopping-bag__item" key={fruit.id}>
+              <div className="shopping-bag__item-container">
+                <div className="shopping-bag__item-image-container">
+                  <img
+                    src={fruit.image}
+                    alt={fruit.name}
+                    className="shopping-bag__item-image"
+                  />
+                </div>
+                <div className="shopping-bag__item-info">
+                  <h4 className="shopping-bag__item-title">{fruit.name}</h4>
+                  <p className="shopping-bag__item-family">
+                    {fruit.family} Family
+                  </p>
+                  <p className="shopping-bag__item-stock">
+                    <IoCubeOutline /> In Stock
+                  </p>
+                  <p className="shopping-bag__item-quantity">
+                    Qty: {fruit.quantity}
+                  </p>
+                </div>
               </div>
-              <div className="shopping-bag__list-item-details">
-                <h4 className="shopping-bag__list-item-details-name">
-                  {fruit.name}
-                </h4>
-                <p className="shopping-bag__list-item-details-family">
-                  {fruit.family}
-                </p>
-                <p className="shopping-bag__list-item-details-quantity">
-                  Qty: {fruit.quantity}
-                </p>
+              <div className="shopping-bag__item-quantity-actions">
+                <button
+                  className="shopping-bag__item-quantity-actions-button shopping-bag__item-quantity-actions-button_decrease"
+                  onClick={() => decreaseQuantity(fruit.id)}
+                  disabled={fruit.quantity === 1}
+                >
+                  -
+                </button>
+                <span className="shopping-bag__item-current-quantity">
+                  {fruit.quantity}
+                </span>
+                <button
+                  className="shopping-bag__item-quantity-actions-button shopping-bag__item-quantity-actions-button_increase"
+                  onClick={() => increaseQuantity(fruit.id)}
+                >
+                  +
+                </button>
               </div>
               <button
-                className="shopping-bag__list-item-delete"
+                className="shopping-bag__item-delete-button"
                 onClick={(e) => {
                   deleteFruit(fruit.id);
                   e.stopPropagation();
@@ -43,44 +67,14 @@ const ShoppingBag = ({ fruits }) => {
               >
                 <FaRegTrashAlt size={15} />
               </button>
-              <span className="shopping-bag__list-item-price">
-                ${(fruit.price * fruit.quantity).toFixed(2)}
-              </span>
+              <p className="shopping-bag__item-price">
+                {(fruit.price * fruit.quantity).toFixed(1)} $
+              </p>
             </li>
           ))}
       </ul>
-      <div className="shopping-bag__total">
-        <span className="shopping-bag__total-label">Total (incl. VAT)</span>
-        <span>
-          $
-          {fruits
-            .filter((fruit) => fruit.inBag)
-            .reduce((total, fruit) => total + fruit.price * fruit.quantity, 0)
-            .toFixed(2)}
-        </span>
-      </div>
-      <button className="shopping-bag__checkout-button checkout">
-        Checkout
-      </button>
-      <button className="shopping-bag__checkout-button see-in-bag">
-        See in Bag
-      </button>
-    </>
+    </section>
   );
-};
-
-ShoppingBag.propTypes = {
-  fruits: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      family: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired,
-      inBag: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default ShoppingBag;
