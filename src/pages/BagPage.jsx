@@ -1,4 +1,5 @@
 import "../assets/styles/pages/BagPage.scss";
+import OrderSummary from "../components/OrderSummary";
 import ShoppingBag from "../components/ShoppingBag";
 
 const BagPage = () => {
@@ -8,6 +9,7 @@ const BagPage = () => {
       <div className="bag-page__content">
         <ShoppingBag />
       </div>
+      <OrderSummary />
     </main>
   );
 };
