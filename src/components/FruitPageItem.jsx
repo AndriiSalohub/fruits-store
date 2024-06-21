@@ -24,7 +24,11 @@ const FruitPageItem = () => {
             onClick={() => toggleLike(fruit.id)}
             className="fruit-page-item__like"
           >
-            {fruit.isFavorite ? <FaHeart className="liked" /> : <FaRegHeart />}
+            {fruit.isFavorite ? (
+              <FaHeart className="liked" size={25} />
+            ) : (
+              <FaRegHeart size={25} />
+            )}
           </button>
           <img
             src={`../../${fruit.image}`}
@@ -62,9 +66,9 @@ const FruitPageItem = () => {
         </p>
         <div className="fruit-page-item__quantity">
           <button
-            className="fruit-page-item__quantity-button fruit-page-item__quantity-button_decrease"
+            className="fruit-page-item__quantity-button fruit-page-item__quantity-button_decrease quantity-change-button"
             onClick={() => decreaseQuantity(fruit.id)}
-            disabled={fruit.quantity == 1 ? true : false}
+            disabled={fruit.quantity === 1}
           >
             -
           </button>
@@ -72,7 +76,7 @@ const FruitPageItem = () => {
             {fruit.quantity}
           </span>
           <button
-            className="fruit-page-item__quantity-button fruit-page-item__quantity-button_increase"
+            className="fruit-page-item__quantity-button fruit-page-item__quantity-button_increase quantity-change-button"
             onClick={() => increaseQuantity(fruit.id)}
           >
             +
@@ -85,11 +89,11 @@ const FruitPageItem = () => {
           Eum, totam pariatur. Perspiciatis!
         </p>
         <div className="fruit-page-item__actions">
-          <button className="fruit-page-item__actions-button fruit-page-item__actions-button_buy-now">
+          <button className="fruit-page-item__actions-button fruit-page-item__actions-button_buy-now blue-button">
             Buy Now
           </button>
           <button
-            className="fruit-page-item__actions-button fruit-page-item__actions-button_to-bag"
+            className="fruit-page-item__actions-button fruit-page-item__actions-button_to-bag outlined-button"
             onClick={() => toggleInBag(fruit.id)}
           >
             <MdOutlineShoppingBag size={15} />

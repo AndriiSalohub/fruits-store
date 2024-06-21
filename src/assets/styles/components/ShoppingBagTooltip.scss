@@ -80,14 +80,6 @@
         font-size: 16px;
         font-weight: 800;
       }
-
-      &-delete {
-        background: none;
-        border: none;
-        color: red;
-        cursor: pointer;
-        margin-left: 10px;
-      }
     }
   }
 
@@ -116,15 +108,11 @@
     border: none;
 
     &.checkout {
-      background-color: #007bff;
-      color: #fff;
       margin-bottom: 10px;
     }
 
     &.see-in-bag {
-      background-color: #f8f9fa;
-      color: #007bff;
-      border: 1px solid #007bff;
+      border: 1px solid #ccc;
     }
   }
 }

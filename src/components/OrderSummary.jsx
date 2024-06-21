@@ -33,7 +33,9 @@ const OrderSummary = () => {
           ${(subtotal + vat).toFixed(2)}
         </p>
       </div>
-      <button className="order-summary__checkout-button">Checkout</button>
+      <button className="order-summary__checkout-button blue-button">
+        Checkout
+      </button>
     </section>
   );
 };

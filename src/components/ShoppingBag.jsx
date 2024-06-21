@@ -41,7 +41,7 @@ const ShoppingBag = () => {
               </div>
               <div className="shopping-bag__item-quantity-actions">
                 <button
-                  className="shopping-bag__item-quantity-actions-button shopping-bag__item-quantity-actions-button_decrease"
+                  className="shopping-bag__item-quantity-actions-button shopping-bag__item-quantity-actions-button_decrease quantity-change-button"
                   onClick={() => decreaseQuantity(fruit.id)}
                   disabled={fruit.quantity === 1}
                 >
@@ -51,14 +51,14 @@ const ShoppingBag = () => {
                   {fruit.quantity}
                 </span>
                 <button
-                  className="shopping-bag__item-quantity-actions-button shopping-bag__item-quantity-actions-button_increase"
+                  className="shopping-bag__item-quantity-actions-button shopping-bag__item-quantity-actions-button_increase quantity-change-button"
                   onClick={() => increaseQuantity(fruit.id)}
                 >
                   +
                 </button>
               </div>
               <button
-                className="shopping-bag__item-delete-button"
+                className="shopping-bag__item-delete-button delete-button"
                 onClick={(e) => {
                   deleteFruit(fruit.id);
                   e.stopPropagation();

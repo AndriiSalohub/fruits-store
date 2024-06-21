@@ -50,7 +50,7 @@ const CurrentFilters = () => {
               onClick={() => updateSearchTerm("")}
             >
               {" "}
-              <IoIosClose />
+              <IoIosClose size={16} />
             </button>
           </motion.li>
         )}

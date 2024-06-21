@@ -37,7 +37,7 @@
         }
 
         &.selected div {
-          background-color: #000;
+          background-color: $primary-color;
 
           .tick-mark {
             content: "";

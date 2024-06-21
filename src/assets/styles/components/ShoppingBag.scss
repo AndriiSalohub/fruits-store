@@ -49,7 +49,7 @@
     }
 
     &-stock {
-      color: #3b82f6;
+      color: $blue-color;
       display: flex;
       align-items: center;
       margin-bottom: 5px;
@@ -70,45 +70,6 @@
       align-items: center;
       gap: 15px;
       margin-right: 1rem;
-
-      &-button {
-        width: 30px;
-        height: 30px;
-        border: 1px solid #ddd;
-        background: #fff;
-        border-radius: 2px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background-color 0.3s;
-
-        &:disabled {
-          cursor: not-allowed;
-          opacity: 0.5;
-        }
-
-        &:not(:disabled):hover {
-          background-color: #f0f0f0;
-        }
-      }
-    }
-
-    &-delete-button {
-      border: 1px solid #ddd;
-      background: #fff;
-      color: #e53e3e;
-      border-radius: 8px;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #f0f0f0;
-      }
     }
 
     &-price {
@@ -116,7 +77,6 @@
     }
   }
 }
-
 
 @media (max-width: 500px) {
   .shopping-bag {
@@ -132,21 +92,22 @@
       }
     }
   }
-@media (max-width: 500px) {
-  .shopping-bag {
-    &__item {
-      flex-direction: column;
-      align-items: flex-start;
+  @media (max-width: 500px) {
+    .shopping-bag {
+      &__item {
+        flex-direction: column;
+        align-items: flex-start;
 
-      &-container {
-        flex-direction: row;
-        width: 100%;
-      }
+        &-container {
+          flex-direction: row;
+          width: 100%;
+        }
 
-      &-quantity-actions {
-        width: 100%;
-        margin-top: 10px;
-        justify-content: space-between;
+        &-quantity-actions {
+          width: 100%;
+          margin-top: 10px;
+          justify-content: space-between;
+        }
       }
     }
   }

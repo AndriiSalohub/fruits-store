@@ -3,6 +3,101 @@
 #root {
   font-family: Helvetica, Arial, sans-serif;
   padding: 20px 40px;
+  color: $primary-color;
+}
+
+.outlined-button {
+  border: none;
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  padding: 15px 20px;
+  transition: background-color 0.3s;
+}
+
+.blue-button {
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  background-color: #007bff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quantity-change-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.liked {
+  color: red;
+}
+
+.delete-button {
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #e53e3e;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+@media (hover: hover) {
+  .outlined-button:hover {
+    background-color: #e5e5e5;
+  }
+
+  .blue-button:hover {
+    background-color: #2563eb;
+  }
+
+  .quantity-change-button:not(:disabled):hover {
+    background-color: #f0f0f0;
+  }
+
+  .delete-button:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+@media (hover: none) {
+  .outlined-button:active {
+    background-color: #e5e5e5;
+  }
+
+  .blue-button:active {
+    background-color: #2563eb;
+  }
+
+  .quantity-change-button:not(:disabled):active {
+    background-color: #f0f0f0;
+  }
+
+  .delete-button:active {
+    background-color: #f0f0f0;
+  }
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Tooltip } from "react-tooltip";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { MdOutlineShoppingBag } from "react-icons/md";
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/ShoppingBagTooltip.scss";
 
@@ -42,7 +43,7 @@ const ShoppingBagTooltip = ({ fruits }) => {
                 </p>
               </div>
               <button
-                className="shopping-bag-tooltip__list-item-delete"
+                className="shopping-bag-tooltip__list-item-delete delete-button"
                 onClick={(e) => {
                   deleteFruit(fruit.id);
                   e.stopPropagation();
@@ -69,11 +70,12 @@ const ShoppingBagTooltip = ({ fruits }) => {
             .toFixed(2)}
         </span>
       </div>
-      <button className="shopping-bag-tooltip__checkout-button checkout">
+      <button className="shopping-bag-tooltip__checkout-button checkout blue-button">
         Checkout
       </button>
-      <button className="shopping-bag-tooltip__checkout-button see-in-bag">
-        See in Bag
+      <button className="shopping-bag-tooltip__checkout-button see-in-bag outlined-button">
+        <MdOutlineShoppingBag size={15} />
+        <p> See in Bag</p>
       </button>
     </Tooltip>
   );

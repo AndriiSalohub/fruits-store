@@ -27,7 +27,11 @@ const FruitsListItem = ({ fruit }) => {
           }}
           className="fruits-list__item-like"
         >
-          {isFavorite ? <FaHeart className="liked" /> : <FaRegHeart />}
+          {isFavorite ? (
+            <FaHeart className="liked" size={20} />
+          ) : (
+            <FaRegHeart size={20} />
+          )}
         </button>
         <img src={image} alt={name} className="fruits-list__item-image" />
         <h4 className="fruits-list__item-name">{name}</h4>
@@ -42,7 +46,11 @@ const FruitsListItem = ({ fruit }) => {
               e.preventDefault();
             }}
           >
-            {inBag ? <MdShoppingBag /> : <MdOutlineShoppingBag />}
+            {inBag ? (
+              <MdShoppingBag size={25} />
+            ) : (
+              <MdOutlineShoppingBag size={25} />
+            )}
           </button>
         </div>
       </motion.li>
