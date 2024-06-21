@@ -8,8 +8,8 @@ const BagPage = () => {
       <h2 className="bag-page__title">Shopping Bag</h2>
       <div className="bag-page__content">
         <ShoppingBag />
+        <OrderSummary />
       </div>
-      <OrderSummary />
     </main>
   );
 };

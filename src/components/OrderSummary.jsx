@@ -11,6 +11,10 @@ const OrderSummary = () => {
     );
   const vat = subtotal * 0.2;
 
+  if (fruits.filter((fruit) => fruit.inBag).length < 1) {
+    return null;
+  }
+
   return (
     <section className="order-summary">
       <h2 className="order-summary__title">Order Summary</h2>

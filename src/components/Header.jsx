@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import { MdOutlineShoppingBag } from "react-icons/md";
+import { NavLink, useLocation } from "react-router-dom";
+import { MdOutlineShoppingBag, MdShoppingBag } from "react-icons/md";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/Header.scss";
@@ -7,6 +7,7 @@ import { useSearch } from "../stores/useSearch";
 import ShoppingBagTooltip from "./ShoppingBagTooltip";
 
 const Header = () => {
+  const location = useLocation();
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
   const { searchTerm, updateSearchTerm } = useSearch();
 
@@ -42,7 +43,11 @@ const Header = () => {
             </span>
           </NavLink>
           <NavLink to="/bag" className="header__in-bag" id="bag">
-            <MdOutlineShoppingBag size={37} />
+            {location.pathname === "/bag" ? (
+              <MdShoppingBag size={37} />
+            ) : (
+              <MdOutlineShoppingBag size={37} />
+            )}
             <span className="header__in-bag-number">
               {" "}
               {fruits.filter((fruit) => fruit.inBag).length}
