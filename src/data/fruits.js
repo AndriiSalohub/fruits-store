@@ -10,7 +10,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/tangerine.png",
+    image: "/images/tangerine.png",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const initialFruits = [
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/melon.png",
+    image: "/images/melon.png",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const initialFruits = [
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/watermelon.png",
+    image: "/images/watermelon.png",
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/lemon.png",
+    image: "/images/lemon.png",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ export const initialFruits = [
     vitamins: ["Vitamin B6"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/banana.png",
+    image: "/images/banana.png",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C", "Vitamin B6"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/pineapple.png",
+    image: "/images/pineapple.png",
   },
   {
     id: 7,
@@ -88,7 +88,7 @@ export const initialFruits = [
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/mango.png",
+    image: "/images/mango.png",
   },
   {
     id: 8,
@@ -101,7 +101,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/red-apple.png",
+    image: "/images/red-apple.png",
   },
   {
     id: 9,
@@ -114,7 +114,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/green-apple.png",
+    image: "/images/green-apple.png",
   },
   {
     id: 10,
@@ -127,7 +127,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C", "Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/pear.png",
+    image: "/images/pear.png",
   },
   {
     id: 11,
@@ -140,7 +140,7 @@ export const initialFruits = [
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/peach.png",
+    image: "/images/peach.png",
   },
   {
     id: 12,
@@ -153,7 +153,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/cherries.png",
+    image: "/images/cherries.png",
   },
   {
     id: 13,
@@ -166,7 +166,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/strawberry.png",
+    image: "/images/strawberry.png",
   },
   {
     id: 14,
@@ -179,7 +179,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C", "Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/blueberries.png",
+    image: "/images/blueberries.png",
   },
   {
     id: 15,
@@ -192,7 +192,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C", "Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/grapes.png",
+    image: "/images/grapes.png",
   },
   {
     id: 16,
@@ -205,7 +205,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C", "Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/kiwi-fruit.png",
+    image: "/images/kiwi-fruit.png",
   },
   {
     id: 17,
@@ -218,7 +218,7 @@ export const initialFruits = [
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/tomato.png",
+    image: "/images/tomato.png",
   },
   {
     id: 18,
@@ -231,7 +231,7 @@ export const initialFruits = [
     vitamins: ["Vitamin E", "Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/olive.png",
+    image: "/images/olive.png",
   },
   {
     id: 19,
@@ -244,7 +244,7 @@ export const initialFruits = [
     vitamins: ["Vitamin B6"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/coconut.png",
+    image: "/images/coconut.png",
   },
   {
     id: 20,
@@ -257,7 +257,7 @@ export const initialFruits = [
     vitamins: ["Vitamin K", "Vitamin E"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/avocado.png",
+    image: "/images/avocado.png",
   },
   {
     id: 21,
@@ -270,7 +270,7 @@ export const initialFruits = [
     vitamins: ["Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/eggplant.png",
+    image: "/images/eggplant.png",
   },
   {
     id: 22,
@@ -283,7 +283,7 @@ export const initialFruits = [
     vitamins: ["Vitamin K"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/cucumber.png",
+    image: "/images/cucumber.png",
   },
   {
     id: 23,
@@ -296,7 +296,7 @@ export const initialFruits = [
     vitamins: ["Vitamin A", "Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/bell-pepper.png",
+    image: "/images/bell-pepper.png",
   },
   {
     id: 24,
@@ -309,7 +309,7 @@ export const initialFruits = [
     vitamins: ["Vitamin C"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/hot-pepper.png",
+    image: "/images/hot-pepper.png",
   },
   {
     id: 25,
@@ -322,6 +322,6 @@ export const initialFruits = [
     vitamins: ["Vitamin A"],
     isFavorite: false,
     inBag: false,
-    image: "./src/assets/images/jack-o-lantern.png",
+    image: "/images/jack-o-lantern.png",
   },
 ];
