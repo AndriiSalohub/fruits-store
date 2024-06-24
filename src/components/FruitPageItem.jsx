@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFruits } from "../stores/useFruits";
+import { useCheckout } from "../stores/useCheckout";
 import { IoCubeOutline } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
@@ -15,6 +16,7 @@ const FruitPageItem = () => {
   } = useFruits();
   const { fruitName } = useParams();
   const [fruit] = fruits.filter((fruit) => fruit.name === fruitName);
+  const { toggleCheckout } = useCheckout();
 
   return (
     <article className="fruit-page-item">
@@ -89,7 +91,10 @@ const FruitPageItem = () => {
           Eum, totam pariatur. Perspiciatis!
         </p>
         <div className="fruit-page-item__actions">
-          <button className="fruit-page-item__actions-button fruit-page-item__actions-button_buy-now blue-button">
+          <button
+            className="fruit-page-item__actions-button fruit-page-item__actions-button_buy-now blue-button"
+            onClick={toggleCheckout}
+          >
             Buy Now
           </button>
           <button

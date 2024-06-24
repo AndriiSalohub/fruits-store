@@ -11,6 +11,12 @@ const Header = () => {
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
   const { searchTerm, updateSearchTerm } = useSearch();
 
+  const handleBagClick = (e) => {
+    if (e.target.closest(".shopping-bag-tooltip")) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <header className="header">
       <div className="header__left">
@@ -42,7 +48,12 @@ const Header = () => {
               {fruits.filter((fruit) => fruit.isFavorite == true).length}
             </span>
           </NavLink>
-          <NavLink to="/bag" className="header__in-bag" id="bag">
+          <NavLink
+            to="/bag"
+            className="header__in-bag"
+            id="bag"
+            onClick={handleBagClick}
+          >
             {location.pathname === "/bag" ? (
               <MdShoppingBag size={37} />
             ) : (
@@ -53,7 +64,10 @@ const Header = () => {
               {fruits.filter((fruit) => fruit.inBag).length}
             </span>
             {fruits.filter((fruit) => fruit.inBag).length > 0 && (
-              <ShoppingBagTooltip fruits={fruits} />
+              <ShoppingBagTooltip
+                fruits={fruits}
+                onClick={(e) => e.stopPropagation()}
+              />
             )}
           </NavLink>
         </div>

@@ -1,8 +1,11 @@
 import { useFruits } from "../stores/useFruits";
 import "../assets/styles/components/OrderSummary.scss";
+import { useCheckout } from "../stores/useCheckout";
 
 const OrderSummary = () => {
   const { fruits } = useFruits();
+  const { toggleCheckout } = useCheckout();
+
   const subtotal = fruits
     .filter((fruit) => fruit.inBag)
     .reduce(
@@ -37,7 +40,10 @@ const OrderSummary = () => {
           ${(subtotal + vat).toFixed(2)}
         </p>
       </div>
-      <button className="order-summary__checkout-button blue-button">
+      <button
+        className="order-summary__checkout-button blue-button"
+        onClick={toggleCheckout}
+      >
         Checkout
       </button>
     </section>
