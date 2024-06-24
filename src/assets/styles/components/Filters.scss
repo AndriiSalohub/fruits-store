@@ -10,6 +10,7 @@
       height: 0px;
       overflow: hidden;
       transition: all 0.3s ease-in-out;
+      z-index: 50;
 
       &.open-colors {
         height: auto;

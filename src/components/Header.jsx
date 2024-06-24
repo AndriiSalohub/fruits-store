@@ -8,6 +8,7 @@ import ShoppingBagTooltip from "./ShoppingBagTooltip";
 
 const Header = () => {
   const location = useLocation();
+  const isBagOpen = location.pathname === "/bag";
   const { toggleShowOnlyFavorites, fruits, showOnlyFavorites } = useFruits();
   const { searchTerm, updateSearchTerm } = useSearch();
 
@@ -63,7 +64,7 @@ const Header = () => {
               {" "}
               {fruits.filter((fruit) => fruit.inBag).length}
             </span>
-            {fruits.filter((fruit) => fruit.inBag).length > 0 && (
+            {fruits.filter((fruit) => fruit.inBag).length > 0 && !isBagOpen && (
               <ShoppingBagTooltip
                 fruits={fruits}
                 onClick={(e) => e.stopPropagation()}

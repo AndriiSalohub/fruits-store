@@ -10,7 +10,7 @@ const StoreInfo = () => {
         vitality. Delivered straight from the farm to your table.
       </h4>
       <button className="store-info__shop-button">
-        <Link to="/shop">Shop Now</Link>
+        <Link to="/store">Shop Now</Link>
       </button>
     </section>
   );
