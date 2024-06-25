@@ -69,7 +69,6 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-right: 1rem;
     }
 
     &-price {
@@ -92,11 +91,13 @@
       }
     }
   }
+
   @media (max-width: 500px) {
     .shopping-bag {
       &__item {
         flex-direction: column;
         align-items: flex-start;
+        align-items: center;
 
         &-container {
           flex-direction: row;
@@ -107,6 +108,10 @@
           width: 100%;
           margin-top: 10px;
           justify-content: space-between;
+        }
+
+        &-delete-button {
+          margin-bottom: 10px;
         }
       }
     }
